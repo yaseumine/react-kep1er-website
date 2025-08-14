@@ -5,7 +5,7 @@ import Firstimpact from "../assets/images/Album/First_Impact.png";
 import Doublast from "../assets/images/Album/Doublast.png";
 import Troubleshooter from "../assets/images/Album/Troubleshooter.png";
 import MagicHour from "../assets/images/Album/Magic_Hour.png";
-import LoveStruck from "../assets/images/Album/LoveStruck.png";
+import LoveStruck from "../assets/images/Album/Lovestruck.png";
 import Kep1going from "../assets/images/Album/Kep1going.png";
 import Tiptap from "../assets/images/Album/Tip_Tap.png";
 import against from "../assets/images/Album/against.jpg";
