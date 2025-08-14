@@ -1,0 +1,29 @@
+.box {
+  margin: 2rem auto;
+  width: 320px;
+  height: 180px;
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(240, 80, 80, 0.3);
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden; /* Properti ini penting untuk memotong gambar yang melebihi batas */
+}
+
+.rectangle {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background-color: transparent;
+  overflow: hidden; /* Properti ini juga penting */
+}
+
+.rectangle img {
+  width: 100%; /* Agar gambar mengisi penuh lebar */
+  height: 100%; /* Agar gambar mengisi penuh tinggi */
+  object-fit: cover; /* INI PROPERTI KUNCI. Membuat gambar mengisi kotak tanpa distorsi. */
+  display: block;
+}

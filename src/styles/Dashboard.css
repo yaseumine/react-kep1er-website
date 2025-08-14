@@ -1,0 +1,207 @@
+/* === FONT IMPORT === */
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans&family=Jomhuria&display=swap");
+
+/* === ANIMATION === */
+.fade-hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === HERO SECTION === */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  transition: transform 0.2s ease-out;
+}
+
+.hero-text {
+  text-align: center;
+  color: #7756a0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.hero-text h1 {
+  font-size: 10rem;
+  font-weight: 100;
+  line-height: 1;
+}
+
+.hero-text .highlight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.relative-text {
+  position: relative;
+  display: inline-block;
+}
+
+.vector {
+  position: absolute;
+  height: auto;
+  max-width: 100%; /* cegah keluar layar */
+  pointer-events: none;
+}
+
+/* Posisi dan ukuran khusus */
+.vector.top {
+  width: 0.3em;
+  top: 0.2em;
+  left: -0.35em;
+}
+.vector.middle {
+  width: 0.09em;
+  top: 25%;
+  left: -0.4em;
+  transform: translateY(-50%);
+}
+
+.vector.bottom {
+  width: 0.09em;
+  bottom: 0.4em; /* di bawah huruf */
+  left: -0.12em;
+}
+
+.vector.top-right {
+  width: 0.4em;
+  top: 0.2em;
+  left: 2em;
+}
+
+/* === BANNER SECTION === */
+.banner {
+  position: relative;
+  height: 75vh; /* hampir penuh layar */
+  min-height: 450px; /* aman di laptop 14" */
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 80px; /* jarak aman ke content */
+}
+
+.banner-slider {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* fokus tengah */
+}
+
+/* Tombol navigasi */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
+}
+
+/* === CONTENT SECTION === */
+.content {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #1e1e1e;
+}
+/* === [BARU] GARIS PEMISAH INTERAKTIF === */
+.interactive-separator-wrapper {
+  /* Memberi jarak vertikal untuk garis pemisah */
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.interactive-separator {
+  height: 2px;
+  width: 0%;
+  /* Gradient yang warnanya senada dengan tema ungu */
+  background: linear-gradient(
+    90deg,
+    rgba(206, 192, 249, 0),
+    #4b0082,
+    rgba(206, 192, 249, 0)
+  );
+  animation: draw-line 2s ease-out 1s forwards; /* Animasi "menggambar" dengan delay */
+}
+
+/* Keyframes untuk animasi garis */
+@keyframes draw-line {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 60%; /* Lebar akhir garis */
+  }
+}
+/* === AKHIR BAGIAN BARU === */
+
+/* === RESPONSIVE DASHBOARD === */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 3rem;
+  }
+
+  .hero-text img {
+    height: 20px;
+  }
+
+  .content h2 {
+    font-size: 2rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+}
+
+.banner {
+  height: 60vh;
+  min-height: 900px;
+}

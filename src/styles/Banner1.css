@@ -1,0 +1,43 @@
+.banner {
+  width: 100%;
+  height: 90vh; /* Menggunakan 60% dari tinggi layar */
+  min-height: 400px; /* Tinggi minimum agar tidak terlalu kecil di layar super lebar */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner h1 {
+  font-family: "Instrument Sans-Regular", Helvetica, sans-serif;
+  font-size: 4rem; /* Ukuran font judul */
+  margin: 0;
+  padding: 0 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+  .banner {
+    height: 40vh; /* Mengurangi tinggi banner di layar ponsel */
+    min-height: 250px;
+  }
+  .banner h1 {
+    font-size: 2.5rem;
+  }
+}
