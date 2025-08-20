@@ -158,8 +158,9 @@ body {
   width: 100%;
   height: 100%;
 
-  /* Terapkan gambar background ke bingkai, bukan ke seluruh kartu */
-  background-image: url("../assets/images/member/photocard_bg.png");
+  /* UBAH 'member' menjadi 'Member' DI SINI */
+  background-image: url('../assets/images/Member/photocard_bg.png');
+  
   background-size: cover; /* 'cover' lebih cocok untuk bingkai penuh */
   background-position: center;
 
