@@ -4,12 +4,19 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #f8f8f8;
 }
 
 .members-page {
   font-family: "Instrument Sans", sans-serif;
-  color: #1e1e1e;
+  color: #333; /* Sedikit lebih lembut dari hitam pekat */
+  /* TAMBAHKAN GRADASI DI SINI */
+  background: linear-gradient(
+    180deg,
+    rgba(231, 176, 236, 0.7) 18.27%,
+    rgba(255, 241, 150, 0.6)
+  );
+  padding-top: 1px; /* Mencegah margin collapse */
+  padding-bottom: 5rem;
 }
 
 /* --- Header dan Teks Intro --- */
@@ -21,14 +28,20 @@ body {
 }
 
 .members-title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #7756a0;
+  font-family: "Konkhmer Sleokchher", cursive; /* Samakan font dengan Shop */
+  font-size: clamp(2.5rem, 6vw, 3.5rem); /* Samakan ukuran dengan Shop */
+  margin-bottom: 1.5rem;
+  color: #522076; /* UBAH WARNA JUDUL DI SINI */
+}
+
+.members-intro-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
 }
 
 /* --- Container Utama dengan Warna Ungu --- */
 .members-wrapper {
-  background-color: #e6e6fa; /* Lavender Blush */
+  /* HAPUS background-color agar gradasi terlihat */
   padding: 4rem 2rem;
   max-width: 1200px;
   margin: 0 auto 4rem;
@@ -63,14 +76,17 @@ body {
 
 .member-details {
   flex: 1;
-  background-color: #fdfdff; /* Putih gading */
+  background-color: rgba(255, 255, 255, 0.7); /* Buat sedikit transparan */
   padding: 2rem;
   border-radius: 8px;
+  backdrop-filter: blur(5px); /* Efek glassmorphism */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .member-name {
   font-size: 2rem;
   margin-bottom: 1rem;
+  color: #522076; /* Samakan warna nama anggota */
 }
 
 .member-description {
@@ -123,14 +139,63 @@ body {
 }
 
 .flip-card-back {
-  background-color: #ffffff;
-  color: #1e1e1e;
+  /* Ganti warna solid dengan gradasi yang sesuai tema */
+  background: linear-gradient(180deg, #e7b0ec, #fff196);
+
+  /* Properti untuk memusatkan bingkai di tengah */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem; /* Jarak antara tepi kartu dan bingkai */
+
+  /* Properti yang sudah ada */
   transform: rotateY(180deg);
-  padding: 1.5rem;
+}
+
+/* --- STYLE BARU UNTUK TEKS DI BELAKANG KARTU (PENTING) --- */
+/* --- STYLE BARU UNTUK BINGKAI FOTO --- */
+.photocard-frame {
+  width: 100%;
+  height: 100%;
+
+  /* Terapkan gambar background ke bingkai, bukan ke seluruh kartu */
+  background-image: url("../assets/images/member/photocard_bg.png");
+  background-size: cover; /* 'cover' lebih cocok untuk bingkai penuh */
+  background-position: center;
+
+  /* Properti untuk menata teks di dalam bingkai */
+  color: #fff;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  padding: 2rem; /* Ruang di dalam bingkai */
+  border-radius: 8px; /* Samakan dengan radius kartu */
+  box-sizing: border-box;
+}
+
+/* --- STYLE UNTUK TEKS DI DALAM BINGKAI --- */
+.member-roles {
+  font-family: "Instrument Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  max-width: 90%;
+}
+
+.member-back-desc {
+  font-family: "Instrument Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 90%;
 }
 
 /* Aturan untuk gambar anggota di dalam kartu */
@@ -142,49 +207,11 @@ body {
 
 /* --- AKHIR BAGIAN YANG DIPERBAIKI --- */
 
-/* --- Banner di Bawah --- */
-.members-banner-wrapper {
-  background-color: #cec0f9;
-  color: #4b0082;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-  text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.banner-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.banner-text {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  line-height: 1.5;
-}
-
-.banner-button {
-  background-color: #4b0082;
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
-}
-
-.banner-button:hover {
-  background-color: #5d3fd3;
-}
-
 /* --- Responsivitas --- */
 @media (max-width: 768px) {
   .member-item {
-    flex-direction: column-reverse;
+    /* UBAH DARI column-reverse MENJADI column AGAR GAMBAR DI ATAS */
+    flex-direction: column;
     text-align: center;
     transform: scale(1);
     gap: 2rem;
@@ -196,14 +223,7 @@ body {
 
   .member-item.layout-left,
   .member-item.layout-right {
-    flex-direction: column-reverse;
-  }
-
-  .members-banner-wrapper {
-    padding: 2rem 1rem;
-  }
-
-  .banner-title {
-    font-size: 1.8rem;
+    /* PASTIKAN INI JUGA DIUBAH MENJADI column */
+    flex-direction: column;
   }
 }

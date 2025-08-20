@@ -1,0 +1,171 @@
+.new-album-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem 1rem 5rem 1rem;
+  background: linear-gradient(
+    180deg,
+    rgba(231, 176, 236, 0.7) 18.27%,
+    rgba(255, 241, 150, 0.6)
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+/* === SECTION STYLES === */
+.album-hero,
+.music-video-section,
+.photo-gallery-section {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* Terapkan animasi di sini */
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0; /* Mulai dengan transparan */
+}
+
+/* Tambahkan delay untuk setiap section agar muncul bergantian */
+.photo-gallery-section {
+  animation-delay: 0.2s;
+}
+
+.music-video-section {
+  animation-delay: 0.4s;
+}
+
+.section-title {
+  font-family: "Konkhmer Sleokchher", cursive;
+  font-size: clamp(2rem, 6vw, 2.5rem);
+  color: #522076; /* Diubah dari #333 */
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+}
+
+/* === HERO ALBUM === */
+.hero-cover-art {
+  width: 100%;
+  max-width: 490px;
+  height: auto;
+  border-radius: 61px;
+  object-fit: cover;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease-in-out; /* Tambahkan transisi */
+}
+
+.hero-cover-art:hover {
+  transform: scale(1.03); /* Efek zoom saat hover */
+}
+
+.album-title {
+  font-family: "Konkhmer Sleokchher", cursive;
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
+  color: #522076; /* Diubah dari #000 */
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.album-description {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  line-height: 1.6;
+  color: #333;
+  text-align: center;
+  max-width: 800px;
+}
+
+/* === MUSIC VIDEO === */
+.video-player-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Aspect Ratio 16:9 */
+  border-radius: 38px;
+  overflow: hidden;
+  background-color: #d9d9d9;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out; /* Tambahkan transisi */
+}
+
+.video-player-wrapper:hover {
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2); /* Efek shadow lebih kuat */
+}
+
+/* TAMBAHKAN BLOK INI */
+.video-player-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* AKHIR BLOK TAMBAHAN */
+
+/* === PHOTO GALLERY === */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 39px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Tambahkan transisi */
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05); /* Efek zoom lebih besar */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Tambahkan shadow */
+}
+
+/* === STREAMING LINKS === */
+.streaming-links {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.streaming-link-item {
+  font-size: 2.5rem;
+  /* Hapus warna default dari sini */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.streaming-link-item:hover {
+  /* Ganti efek hover menjadi opacity agar warna asli tetap terlihat */
+  opacity: 0.7;
+  transform: scale(1.1);
+}
+
+/* === WARNA IKON SPESIFIK === */
+.streaming-link-item.spotify {
+  color: #1db954;
+}
+.streaming-link-item.apple {
+  color: #fc3c44;
+}
+.streaming-link-item.melon {
+  color: #00cd3c;
+}
+
+/* === ANIMASI FADE-IN === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,3 +1,6 @@
+/* Pindahkan import font ke sini agar tersedia global */
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;700&family=Jomhuria&family=Konkhmer+Sleokchher&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -17,4 +20,12 @@ body {
 
 .jomhuria {
   font-family: "Jomhuria", cursive;
+}
+
+/* Hapus style 'main' yang lama jika ada */
+
+/* Style untuk pembungkus konten utama */
+main {
+  /* Beri padding atas seukuran tinggi navbar */
+  padding-top: 60px; /* Sesuaikan 60px jika tinggi navbar Anda berbeda */
 }

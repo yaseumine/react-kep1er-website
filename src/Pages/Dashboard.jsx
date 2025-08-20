@@ -1,171 +1,162 @@
-import { useState, useRef, useEffect } from "react";
-import Navbar from "../components/Navbar";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // 1. IMPORT LINK DI SINI
 import "../styles/Dashboard.css";
-import Members from "../components/Members";
+import KLAP from "../assets/images/dashboard/KLAP.jpg";
 
 function Dashboard() {
+  // Animasi scale tulisan hero
   const [scrollY, setScrollY] = useState(0);
-  const scrollTarget = useRef(0);
-  const contentRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  // Smooth scroll update
-  useEffect(() => {
-    let animationFrame;
-
-    const handleScroll = () => {
-      scrollTarget.current = window.scrollY;
-      if (!animationFrame) {
-        animationFrame = requestAnimationFrame(smoothUpdate);
-      }
-    };
-
-    const smoothUpdate = () => {
-      setScrollY((prev) => {
-        const diff = scrollTarget.current - prev;
-        const eased = prev + diff * 0.1;
-        if (Math.abs(diff) < 0.1) {
-          animationFrame = null;
-          return scrollTarget.current;
-        }
-        animationFrame = requestAnimationFrame(smoothUpdate);
-        return eased;
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      cancelAnimationFrame(animationFrame);
-    };
-  }, []);
-
-  // Fade-in observer
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (contentRef.current) {
-      observer.observe(contentRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Scale values
   const textScale = Math.max(1 - scrollY / 300, 0.6);
-  const images = ["/img/banner1.jpg", "/img/banner2.jpg", "/img/banner3.jpg"];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
-
-  // Auto-slide tiap 3 detik
+  // Fade-in animasi
+  const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
-    const interval = setInterval(nextSlide, 3000);
-    return () => clearInterval(interval);
+    setIsVisible(true);
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const [showMoreAlbums, setShowMoreAlbums] = useState(false);
+
+  // Data untuk semua album (tambahkan lebih banyak jika perlu)
+  const allAlbums = [
+    {
+      id: 1,
+      src: "https://placehold.co/150x150/ffc0cb/333?text=Magic+Hour",
+      alt: "Album 1",
+    },
+    {
+      id: 2,
+      src: "https://placehold.co/150x150/ab81db/fff?text=Against",
+      alt: "Album 2",
+    },
+    {
+      id: 3,
+      src: "https://placehold.co/150x150/a0e9ff/333?text=Tipi+Tap",
+      alt: "Album 3",
+    },
+    {
+      id: 4,
+      src: "https://placehold.co/150x150/f9a825/fff?text=First+Impact",
+      alt: "Album 4",
+    },
+    {
+      id: 5,
+      src: "https://placehold.co/150x150/7cb342/fff?text=Doublast",
+      alt: "Album 5",
+    },
+    {
+      id: 6,
+      src: "https://placehold.co/150x150/d81b60/fff?text=Troubleshooter",
+      alt: "Album 6",
+    },
+  ];
+
+  // Tentukan album yang akan ditampilkan berdasarkan state
+  const displayedAlbums = showMoreAlbums ? allAlbums : allAlbums.slice(0, 3);
 
   return (
-    <>
-      <div className="dashboard">
-        {/* HERO SECTION */}
-        <section className="hero">
-          {/* Efek scale dipindahkan ke sini */}
-          <div
-            className="hero-text"
-            style={{
-              transform: `scale(${textScale})`,
-              transformOrigin: "center top",
-            }}
-          >
-            <h1 className="jomhuria">ANNYEONG!!</h1>
-            <h1 className="highlight jomhuria">
-              <span className="relative-text">
-                <img src="img/Vector-2.svg" alt="icon" className="vector top" />
-                <img
-                  src="img/Vector-1.svg"
-                  alt="icon"
-                  className="vector middle"
-                />
-                <img
-                  src="img/Vector-3.svg"
-                  alt="icon"
-                  className="vector bottom"
-                />
-                KEPLIAN
-                <img
-                  src="img/Vector-4.svg"
-                  alt="icon"
-                  className="vector top-right"
-                />
-              </span>
-            </h1>
-          </div>
+    <div className="dashboard-container">
+      {/* HERO SECTION */}
+      <section className="hero">
+        <div
+          className="hero-text"
+          style={{
+            transform: `scale(${textScale})`,
+            transformOrigin: "center top",
+          }}
+        >
+          <h1 className="jomhuria annyeong">ANNYEONG!!</h1>
+          <h1 className="jomhuria keplian highlight">KEPLIAN</h1>
+        </div>
+      </section>
+
+      {/* MAIN CONTENT WRAPPER */}
+      <div className="main-content-wrapper">
+        {/* BUBBLE GUM SECTION (No Card) */}
+        <section className="bubble-gum-section">
+          {/* PASTIKAN 'to' DI SINI ADALAH "/new-albums" */}
+          <Link to="/new-albums">
+            <img src={KLAP} alt="Bubble Gum" className="card-img" />
+          </Link>
+          <h2 className="card-title">Comeback album “Bubble Gum” - Out now</h2>
         </section>
 
-        {/* BANNER */}
-        <section className="banner">
-          <div
-            className="banner-slider"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-          >
-            {images.map((src, index) => (
-              <div className="slide" key={index}>
-                <img src={src} alt={`Banner ${index + 1}`} />
+        {/* Garis Pemisah Interaktif */}
+        <div className="interactive-separator"></div>
+
+        {/* KEP1ER INFO SECTION (No Card) */}
+        <section className={`info-section ${isVisible ? "fade-in" : ""}`}>
+          <h3>Kep1er</h3>
+          <p className="catchphrase">“Catch Your Eye, Catch Your Mind”</p>
+          <p className="description">
+            Kep1er (Korea: 케플러) adalah girlband multinational yang dibentuk
+            melalui acara survival Mnet Girls Planet 999. Mereka debut pada 3
+            Januari 2022 dengan mini album pertama, First Impact.
+          </p>
+        </section>
+
+        {/* Garis Pemisah Interaktif */}
+        <div className="interactive-separator"></div>
+
+        {/* ALBUM SECTION */}
+        <section className="list-section">
+          <div className="list-header">
+            <h4>Album</h4>
+            {/* Link "More" dihapus dari sini */}
+          </div>
+          <div className="card-list">
+            {displayedAlbums.map((album) => (
+              <div className="item-card" key={album.id}>
+                <img src={album.src} alt={album.alt} />
               </div>
             ))}
           </div>
-          <button className="prev" onClick={prevSlide}>
-            &#10094;
-          </button>
-          <button className="next" onClick={nextSlide}>
-            &#10095;
-          </button>
+          {/* Tombol "More" dipindahkan ke bawah list */}
+          {!showMoreAlbums && (
+            <div className="more-link-wrapper">
+              <button
+                onClick={() => setShowMoreAlbums(true)}
+                className="more-link-button"
+              >
+                More
+              </button>
+            </div>
+          )}
         </section>
 
-        {/* CONTENT */}
-        <section
-          ref={contentRef}
-          className={`content ${isVisible ? "fade-in" : "fade-hidden"}`}
-        >
-          <h2>Biografi Singkat</h2>
-          <p>
-            Kep1er (Korea: 케플러, Jepang: ケプラー; dibaca sebagai) adalah
-            girlband multinational beranggotakan Tujuh orang yang akan debut di
-            bawah agensi WAKEONE. Grup ini dibentuk melalui reality show
-            survival Mnet Girls Planet 999, mereka debut pada 3 Januari 2022
-            dengan mini album pertama mereka, First Impact.Nama grup mereka
-            merupakan kombinasi dari 'Kep', yang berarti menggapai mimpi, dan
-            nomor 1, yang berarti sembilan gadis bersama menjadi satu untuk
-            menjadi yang terbaik. Dan juga merupakan referensi dari sebuah
-            planet 'Kepler' dan juga terinspirasi oleh astronom Jerman, Johannes
-            Kepler.
-          </p>
+        {/* Garis Pemisah Interaktif */}
+        <div className="interactive-separator"></div>
+
+        {/* UPCOMING SCHEDULE SECTION */}
+        <section className="list-section">
+          <div className="list-header">
+            <h4>Upcoming Schedule</h4>
+          </div>
+          <div className="card-list">
+            <div className="item-card schedule">
+              <img
+                src="https://placehold.co/150x200/ffc0cb/333?text=Fan+Event"
+                alt="Schedule 1"
+              />
+            </div>
+            <div className="item-card schedule">
+              <img
+                src="https://placehold.co/150x200/ab81db/fff?text=IDOL+RADIO"
+                alt="Schedule 2"
+              />
+            </div>
+            <div className="item-card schedule">
+              <img
+                src="https://placehold.co/150x200/ff7f50/fff?text=KCON"
+                alt="Schedule 3"
+              />
+            </div>
+          </div>
         </section>
-        {/* ===== GARIS PEMISAH INTERAKTIF DITAMBAHKAN DI SINI ===== */}
-        <div className="interactive-separator-wrapper">
-          <div className="interactive-separator"></div>
-        </div>
-        {/* ======================================================== */}
       </div>
-      <Members />
-    </>
+    </div>
   );
 }
 

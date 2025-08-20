@@ -13,27 +13,35 @@
    HEADER HALAMAN GALERI
    ================================= */
 .gallery-page {
-  width: 90%;
-  max-width: 1400px;
-  margin: 60px auto;
+  /* Diubah agar sesuai dengan halaman Shop */
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem 5%;
+  background: linear-gradient(
+    180deg,
+    rgba(231, 176, 236, 0.7) 18.27%,
+    rgba(255, 241, 150, 0.6)
+  );
   font-family: "Instrument Sans", sans-serif;
+  box-sizing: border-box; /* Mencegah padding menyebabkan overflow */
 }
 
 .gallery-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 3rem; /* Samakan dengan Shop */
 }
 
 .gallery-header h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--dark-color);
-  margin: 0 0 10px 0;
+  /* Diubah agar sesuai dengan judul di Shop */
+  font-family: "Konkhmer Sleokchher", cursive;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  color: #522076;
+  margin: 0 0 1.5rem 0;
 }
 
 .gallery-header p {
   font-size: 1.2rem;
-  color: #777;
+  color: #333; /* Warna teks dibuat lebih gelap agar mudah dibaca */
   max-width: 500px;
   margin: 0 auto;
 }

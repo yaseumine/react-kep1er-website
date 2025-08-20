@@ -26,6 +26,9 @@ function Navbar() {
             {/* Ini sudah benar dari sebelumnya */}
             <Link to="/gallery">Gallery</Link>
           </li>
+          <li>
+            <Link to="/shop">Shop</Link>
+          </li>
         </ul>
       </div>
     </nav>

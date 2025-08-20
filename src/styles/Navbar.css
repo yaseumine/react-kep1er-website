@@ -1,7 +1,9 @@
 /* === NAVBAR === */
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   background: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   z-index: 1000;
@@ -10,15 +12,15 @@
 .navbar-container {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 0 30px;
-  height: 100px;
+  padding: 0 18px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .navbar-logo {
-  height: 60px;
+  height: 36px;
   object-fit: contain;
 }
 
@@ -33,11 +35,11 @@
 
 .navbar-links a {
   font-family: "Instrument Sans", Helvetica, sans-serif;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 500;
   color: #9b6dd3;
   text-decoration: none;
-  padding: 6px 0;
+  padding: 4px 0;
   position: relative;
   transition: color 0.3s;
   white-space: nowrap;
@@ -60,6 +62,25 @@
 
 .navbar-links a:hover::after {
   width: 100%;
+}
+
+/* Tambahkan style khusus untuk tombol Shop */
+.navbar-shop {
+  background: none;
+  color: #9b6dd3 !important;
+  border-radius: 0;
+  padding: 4px 0;
+  font-weight: 500;
+  font-size: 20px;
+  transition: color 0.3s;
+  line-height: 1.2;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.navbar-shop:hover {
+  background: none;
+  color: #7c4fc9 !important;
 }
 
 /* === RESPONSIVE NAVBAR === */

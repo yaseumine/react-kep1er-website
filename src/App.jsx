@@ -1,16 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-// 1. Import semua komponen halaman ASLI Anda
+// Import semua komponen halaman
 import Navbar from "./components/Navbar";
-import Dashboard from "./Pages/Dashboard"; // Asumsi file ini ada
+import Dashboard from "./Pages/Dashboard";
 import History from "./components/History";
 import Gallery from "./components/Gallery";
-import Members from "./components/Members"; // Ini komponen galeri Pinterest Anda
-
-// Komponen placeholder untuk halaman yang belum dibuat (jika perlu)
-
-// 2. HAPUS 'const GalleryPage = ...' DARI SINI. Kita tidak membutuhkannya lagi.
+import Members from "./components/Members";
+import Footer from "./components/Footer";
+import NewAlbum from "./Pages/New-album";
+import Shop from "./Pages/Shop";
 
 function App() {
   return (
@@ -18,21 +17,22 @@ function App() {
       <Navbar />
       <main>
         <Routes>
-          {/* Rute untuk halaman utama dan Dashboard */}
           <Route path="/" element={<Dashboard />} />
           <Route path="/dashboard" element={<Dashboard />} />
-
-          {/* Rute untuk halaman History */}
           <Route path="/history" element={<History />} />
 
-          {/* Rute untuk halaman Profile (masih menggunakan placeholder) */}
-          <Route path="/Members" element={<Members />} />
+          {/* PERBAIKAN 1: Gunakan huruf kecil untuk path */}
+          <Route path="/members" element={<Members />} />
 
-          {/* 3. PERBAIKAN UTAMA DI SINI */}
-          {/* Sekarang rute ini memanggil komponen <Gallery /> yang asli */}
           <Route path="/gallery" element={<Gallery />} />
+
+          {/* PERBAIKAN 2: Samakan path dengan link (plural) */}
+          <Route path="/new-albums" element={<NewAlbum />} />
+
+          <Route path="/shop" element={<Shop />} />
         </Routes>
       </main>
+      <Footer />
     </Router>
   );
 }

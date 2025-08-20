@@ -10,71 +10,99 @@ import dayeonPhoto from "../assets/images/Member/dayeon.jpg";
 import hikaruPhoto from "../assets/images/Member/hikaru.jpg";
 import bahiyyihPhoto from "../assets/images/Member/bahiyyih.jpg";
 import youngeunPhoto from "../assets/images/Member/youngeun.jpg";
-
+import photocardBg from "../assets/images/member/photocard_bg.png";
 // Data sudah diperbarui dengan detail untuk bagian belakang kartu
 const membersData = [
   {
     id: 1,
-    name: "Choi Yu-jin",
+    name: "Choi Yujin",
+    photo: yujinPhoto,
+    layout: "layout-right",
     description:
-      "Choi Yu-jin (Hangul: 최유진, Hanja:崔有真, lahir 12 Agustus 1996) adalah salah satu penari utama dan sub-vokalis dari grup CLC serta leader dari grup Kep1er. Ia lulus dari Sekolah Ragam Seni Hanlim",
-    card_back_text:
-      "Leader, Lead Dancer, Vokalis. Yujin adalah anggota tertua yang menjadi pemimpin karismatik bagi Kep1er.",
-    image: yujinPhoto,
+      "Yujin adalah leader dari Kep1er. Dikenal dengan kepemimpinannya yang kuat dan pengalamannya yang luas di industri hiburan.",
+    backInfo: {
+      roles: "Leader, Vokal",
+      description:
+        "Dikenal dengan kepemimpinannya yang kuat dan pengalamannya yang luas.",
+    },
   },
   {
     id: 2,
-    name: "Shen Xiaoting",
+    name: "Sakamoto Mashiro",
+    photo: xiaotingPhoto,
+    layout: "layout-left",
     description:
-      "Shen Xiaoting (Korea: 션샤오팅; Tionghoa: 沈小婷; Jepang: シェン·シャオティン; lahir 12 November 1999) adalah seorang penyanyi Tiongkok yang berada di bawah kontrak Klap & Wakeone Entertainment. Ia adalah kontestan acara survival realitas Produce Camp 2020 dan Girls Planet 999, dimana ia meraih peringkat kesembilan, menjadikannya anggota grup vokal perempuan Kep1er",
-    card_back_text:
-      "Main Dancer, Vokalis, Visual. Sebelum Kep1er, Xiaoting adalah seorang penari ballroom profesional.",
-    image: xiaotingPhoto,
+      "Mashiro adalah co-leader grup. Ia membawa pesona yang tenang namun kuat ke dalam setiap penampilan.",
+    backInfo: {
+      roles: "Co-Leader, Vokal",
+      description:
+        "Membawa pesona yang tenang namun kuat dalam setiap penampilan.",
+    },
   },
   {
     id: 3,
     name: "Kim Chae-hyun",
+    photo: chaehyunPhoto,
+    layout: "layout-right",
     description:
-      "Kim Chaehyun (Korea: 김채현, Tiongkok: 金采炫, Jepang: キム・チェヒョン; lahir 26 April 2002) adalah seorang penari dan penyanyi Korea Selatan yang berada di bawah naungan WAKE ONE Entertainment. Ia meraih peringkat satu pada acara surivival realitas Girls Planet 999, menjadikannya anggota grup vokal perempuan Kep1er",
-    card_back_text:
-      "Main Vocalist, Center. Meraih peringkat pertama di Girls Planet 999 dan dikenal karena suara emasnya.",
-    image: chaehyunPhoto,
+      "Chaehyun adalah main vocalist dengan kemampuan vokal yang luar biasa. Ia juga dikenal karena pesonanya di atas panggung.",
+    backInfo: {
+      roles: "Main Vocalist, Center",
+      description:
+        "Meraih peringkat pertama di Girls Planet 999 dan dikenal karena suara emasnya.",
+    },
   },
   {
     id: 4,
     name: "Kim Da-yeon",
+    photo: dayeonPhoto,
+    layout: "layout-left",
     description:
-      "Kim Da Yeon (김다연; lahir 2 Maret 2003) adalah seorang penyanyi dan penari Korea Selatan yang berada di bawah naungan Jellyfish Entertainment. Ia dikenal karena menjadi peserta acara survival realitas, Produce 48 dan Girls Planet 999, di mana ia meraih peringkat keempat, menjadikannya anggota grup vokal perempuan Kep1er.",
-    card_back_text:
-      "Main Dancer, Lead Rapper. Dikenal sebagai 'all-rounder' karena kemampuannya yang seimbang dalam menari, rap, dan vokal.",
-    image: dayeonPhoto,
+      "Dayeon adalah anggota yang berbakat dalam menari dan rap. Ia memiliki karisma yang kuat di atas panggung.",
+    backInfo: {
+      roles: "Main Dancer, Lead Rapper",
+      description:
+        "Dikenal sebagai 'all-rounder' karena kemampuannya yang seimbang dalam menari, rap, dan vokal.",
+    },
   },
   {
     id: 5,
     name: "Ezaki Hikaru",
+    photo: hikaruPhoto,
+    layout: "layout-right",
     description:
-      "Ezaki Hikaru (Korea: 에자키 히카루; Tionghoa: 江崎 光; Jepang: 江崎 ひかる; lahir 12 Maret 2004) adalah seorang penari dan penyanyi asal Jepang yang berada di bawah naungan Avex Artist Academy. Ia adalah mantan anggota +GANG. Ia meraih peringkat ketujuh pada acara survival realitas Mnet Girls Planet 999, menjadikannya anggota grup vokal perempuan Kep1er.",
-    card_back_text:
-      "Main Dancer, Main Rapper. Anggota asal Jepang yang memukau penonton dengan energi dan ekspresi panggungnya yang kuat.",
-    image: hikaruPhoto,
+      "Hikaru adalah anggota yang energik dengan kemampuan menari yang mengesankan. Ia juga memiliki bakat dalam rap.",
+    backInfo: {
+      roles: "Main Dancer, Main Rapper",
+      description:
+        "Anggota asal Jepang yang memukau penonton dengan energi dan ekspresi panggungnya yang kuat.",
+    },
   },
   {
     id: 6,
     name: "Huening Bahiyyih",
+    photo: bahiyyihPhoto,
+    layout: "layout-left",
     description:
-      "Huening Bahiyyih (Hangul: 휴닝바히에, lahir 27 Juli 2004) adalah seorang penyanyi dan penari berkebangsaan Korea Selatan-Amerika Serikat yang berada di bawah naungan IST Entertainment. Ia meraih peringkat kedua dalam acara realitas survival Girls Planet 999, menjadikannya anggota grup vokal perempuan Kep1er.",
-    card_back_text:
-      "Vokalis. Adik dari Huening Kai (TXT) dan Lea (VIVA). Memiliki basis penggemar internasional yang sangat besar.",
-    image: bahiyyihPhoto,
+      "Bahiyyih adalah vokalis berbakat dengan daya tarik yang kuat. Ia memiliki banyak penggemar internasional.",
+    backInfo: {
+      roles: "Vokalis",
+      description:
+        "Adik dari Huening Kai (TXT) dan Lea (VIVA). Memiliki basis penggemar internasional yang sangat besar.",
+    },
   },
   {
     id: 7,
     name: "Seo Young-eun",
+    photo: youngeunPhoto,
+    layout: "layout-right",
     description:
-      "Seo Youngeun (Korea: 서영은; Tionghoa: 徐永恩; Jepang: ソ・ヨンウン; lahir 27 Desember 2004) adalah seorang penari dan penyanyi yang berada di bawah naungan Biscuit Entertainment. Ia meraih peringkat kelima pada acara survival realitas Mnet Girls Planet 999, menjadikannya anggota grup vokal perempuan Kep1er.",
-    card_back_text:
-      "Main Dancer, Lead Vocalist, Rapper. Dikenal karena kemampuan menarinya yang tajam dan energinya yang tak pernah habis.",
-    image: youngeunPhoto,
+      "Youngeun adalah all-rounder yang energik. Kemampuan menarinya yang tajam dan vokalnya yang stabil membuatnya menonjol.",
+    backInfo: {
+      roles: "Main Dancer, Lead Vocalist, Rapper",
+      description:
+        "Dikenal karena kemampuan menarinya yang tajam dan energinya yang tak pernah habis.",
+    },
   },
 ];
 
@@ -107,6 +135,38 @@ const Members = () => {
     };
   }, []);
 
+  function MemberItem({ member, isActive }) {
+    return (
+      <div
+        className={`member-item ${member.layout} ${isActive ? "active" : ""}`}
+      >
+        <div className="flip-card-container">
+          <div className="flip-card-inner">
+            <div className="flip-card-front">
+              <img
+                src={member.photo}
+                alt={member.name}
+                className="member-photo"
+              />
+            </div>
+            <div className="flip-card-back">
+              <div className="photocard-frame">
+                <h4 className="member-roles">{member.backInfo.roles}</h4>
+                <p className="member-back-desc">
+                  {member.backInfo.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="member-details">
+          <h3 className="member-name">{member.name}</h3>
+          <p className="member-description">{member.description}</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="members-page">
       <div className="members-header">
@@ -124,48 +184,13 @@ const Members = () => {
       <div className="members-wrapper">
         <div className="members-list">
           {membersData.map((member, index) => (
-            <div
+            <MemberItem
               key={member.id}
+              member={member}
+              isActive={activeMember === member.id}
               ref={(el) => (memberRefs.current[index] = el)}
-              className={`member-item ${
-                index % 2 === 0 ? "layout-right" : "layout-left"
-              } ${activeMember === member.id ? "active" : ""}`}
-            >
-              <div className="member-details">
-                <h3 className="member-name">{member.name}</h3>
-                <p className="member-description">{member.description}</p>
-              </div>
-
-              <div className="flip-card-container">
-                {/* Bagian yang diperbaiki ada di dalam sini */}
-                <div className="flip-card-inner">
-                  <div className="flip-card-front">
-                    <img
-                      src={member.image}
-                      alt={`Foto ${member.name}`}
-                      className="member-photo"
-                    />
-                  </div>
-                  <div className="flip-card-back">
-                    <p className="card-back-text">{member.card_back_text}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            />
           ))}
-        </div>
-      </div>
-
-      <div className="members-banner-wrapper">
-        <div className="members-banner-content">
-          <h2 className="banner-title">Creative Team Showcase</h2>
-          <p className="banner-text">
-            Lihat lebih banyak karya kami di galeri. Klik di sini untuk
-            menjelajah!
-          </p>
-          <Link to="/Gallery" className="banner-button">
-            Lihat Galeri
-          </Link>
         </div>
       </div>
     </div>

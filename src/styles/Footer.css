@@ -1,0 +1,59 @@
+.footer-container {
+  background-color: #fff;
+  width: 100%;
+  padding: 3rem 1rem; /* Memberi ruang atas-bawah dan samping */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Menengahkan semua item */
+  gap: 2.5rem; /* Jarak antara logo dan ikon sosial media */
+  border-top: 1px solid #e0e0e0; /* Garis tipis di atas footer */
+}
+
+.footer-logo {
+  width: 179px;
+  height: 82px;
+  object-fit: contain; /* Agar logo tidak gepeng */
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-icon-link {
+  /* Hapus warna default dari sini */
+  font-size: 2rem;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.social-icon-link:hover {
+  opacity: 0.8; /* Efek hover yang lebih umum */
+  transform: scale(1.15);
+}
+
+/* === WARNA IKON SPESIFIK === */
+.social-icon-link.tiktok {
+  color: #000000;
+}
+.social-icon-link.youtube {
+  color: #ff0000;
+}
+.social-icon-link.twitter {
+  color: #000000;
+} /* Warna X */
+.social-icon-link.instagram {
+  color: #e4405f;
+}
+.social-icon-link.facebook {
+  color: #1877f2;
+}
+.social-icon-link.daum-cafe {
+  color: #463222;
+} /* Warna coklat kopi */
+.social-icon-link.weibo {
+  color: #e6162d;
+}

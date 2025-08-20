@@ -1,207 +1,211 @@
-/* === FONT IMPORT === */
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans&family=Jomhuria&display=swap");
-
-/* === ANIMATION === */
-.fade-hidden {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+/* === BASE CONTAINER === */
+.dashboard-container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #e7b0ec 0%, #fff196 100%);
+  padding-top: 60px; /* Memberi ruang untuk navbar */
+  padding-bottom: 5rem;
+  overflow-x: hidden; /* Mencegah scroll horizontal */
 }
 
-.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* === HERO SECTION === */
+/* === HERO SECTION (FINAL & STABLE) === */
 .hero {
-  min-height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  transition: transform 0.2s ease-out;
+  padding: 2rem 1rem;
+  text-align: center;
 }
 
 .hero-text {
-  text-align: center;
-  color: #7756a0;
+  color: #522076;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.2rem;
-}
-
-.hero-text h1 {
-  font-size: 10rem;
-  font-weight: 100;
-  line-height: 1;
-}
-
-.hero-text .highlight {
-  display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 0.4rem;
 }
 
-.relative-text {
-  position: relative;
+.annyeong,
+.keplian {
+  font-family: "Jomhuria", cursive;
+  /* Menggunakan clamp() yang lebih kecil dan aman */
+  font-size: clamp(3rem, 12vw, 7rem);
+  font-weight: 400;
+  line-height: 0.7;
+  margin: 0;
+  padding: 0;
+}
+
+/* === MAIN CONTENT WRAPPER === */
+.main-content-wrapper {
+  max-width: 800px;
+  margin: 4rem auto 0;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* === BUBBLE GUM SECTION === */
+.bubble-gum-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bubble-gum-section .card-img {
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  width: 100%;
+}
+
+.bubble-gum-section .card-title {
+  font-family: "Konkhmer Sleokchher", cursive;
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  color: #522076;
+  text-align: center;
+  font-weight: 400;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.15);
+}
+
+/* === INFO SECTION (No Card) === */
+.info-section {
+  text-align: center;
+  padding: 1.5rem;
+  transition: opacity 0.8s ease;
+}
+.info-section h3 {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 2rem;
+  color: #4a148c;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.info-section .catchphrase {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 1.2rem;
+  color: #522076;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.info-section .description {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* === LIST SECTIONS (Album & Schedule) === */
+.list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.list-header {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.list-header h4 {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 1.5rem;
+  color: #522076;
   display: inline-block;
 }
 
-.vector {
-  position: absolute;
-  height: auto;
-  max-width: 100%; /* cegah keluar layar */
-  pointer-events: none;
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
 }
 
-/* Posisi dan ukuran khusus */
-.vector.top {
-  width: 0.3em;
-  top: 0.2em;
-  left: -0.35em;
+.item-card {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
 }
-.vector.middle {
-  width: 0.09em;
-  top: 25%;
-  left: -0.4em;
-  transform: translateY(-50%);
+.item-card:hover {
+  transform: translateY(-5px);
 }
 
-.vector.bottom {
-  width: 0.09em;
-  bottom: 0.4em; /* di bawah huruf */
-  left: -0.12em;
-}
-
-.vector.top-right {
-  width: 0.4em;
-  top: 0.2em;
-  left: 2em;
-}
-
-/* === BANNER SECTION === */
-.banner {
-  position: relative;
-  height: 75vh; /* hampir penuh layar */
-  min-height: 450px; /* aman di laptop 14" */
+.item-card img {
   width: 100%;
-  overflow: hidden;
-  margin-bottom: 80px; /* jarak aman ke content */
+  border-radius: 12px;
+  display: block;
 }
 
-.banner-slider {
-  display: flex;
-  height: 100%;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-  width: 100%;
-  flex-shrink: 0;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
+.item-card.schedule img {
+  aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: center; /* fokus tengah */
 }
 
-/* Tombol navigasi */
-.prev,
-.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.4);
-  color: white;
-  border: none;
-  font-size: 2rem;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.prev {
-  left: 10px;
-}
-.next {
-  right: 10px;
-}
-
-/* === CONTENT SECTION === */
-.content {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 20px;
+.more-link-wrapper {
   text-align: center;
+  margin-top: 1.5rem;
 }
 
-.content h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.more-link-button {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 1.1rem;
+  color: #522076;
+  background: none;
+  border: 1px solid #ab81db;
+  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.content p {
-  font-size: 1.25rem;
-  line-height: 1.6;
-  color: #1e1e1e;
-}
-/* === [BARU] GARIS PEMISAH INTERAKTIF === */
-.interactive-separator-wrapper {
-  /* Memberi jarak vertikal untuk garis pemisah */
-  padding: 3rem 0;
-  display: flex;
-  justify-content: center;
+.more-link-button:hover {
+  background-color: #ab81db;
+  color: #fff;
 }
 
+/* === INTERACTIVE SEPARATOR (SINGLE DEFINITION) === */
 .interactive-separator {
   height: 2px;
-  width: 0%;
-  /* Gradient yang warnanya senada dengan tema ungu */
+  width: 90%;
+  margin: 1.5rem auto;
   background: linear-gradient(
     90deg,
-    rgba(206, 192, 249, 0),
-    #4b0082,
-    rgba(206, 192, 249, 0)
+    rgba(231, 176, 236, 0),
+    #ab81db,
+    rgba(231, 176, 236, 0)
   );
-  animation: draw-line 2s ease-out 1s forwards; /* Animasi "menggambar" dengan delay */
+  opacity: 0;
+  transform: scaleX(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform-origin: center;
 }
 
-/* Keyframes untuk animasi garis */
-@keyframes draw-line {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 60%; /* Lebar akhir garis */
-  }
+.main-content-wrapper .interactive-separator {
+  opacity: 0.7;
+  transform: scaleX(1);
 }
-/* === AKHIR BAGIAN BARU === */
 
-/* === RESPONSIVE DASHBOARD === */
+/* === RESPONSIVE STYLES (COMPREHENSIVE) === */
 @media (max-width: 768px) {
-  .hero-text h1 {
-    font-size: 3rem;
+  .annyeong,
+  .keplian {
+    /* Ukuran lebih kecil lagi untuk mobile */
+    font-size: clamp(2.5rem, 10vw, 4rem);
   }
 
-  .hero-text img {
-    height: 20px;
+  .main-content-wrapper {
+    margin-top: 2rem; /* Kurangi jarak di mobile */
+    gap: 1.5rem;
   }
 
-  .content h2 {
-    font-size: 2rem;
+  .info-section h3 {
+    font-size: 1.8rem;
   }
 
-  .content p {
+  .info-section .description {
     font-size: 1rem;
   }
-}
-
-.banner {
-  height: 60vh;
-  min-height: 900px;
 }
