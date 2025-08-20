@@ -159,8 +159,8 @@ body {
   height: 100%;
 
   /* UBAH 'member' menjadi 'Member' DI SINI */
-  background-image: url('../assets/images/Member/photocard_bg.png');
-  
+  background-image: url("../assets/images/Member/photocard_bg.png");
+
   background-size: cover; /* 'cover' lebih cocok untuk bingkai penuh */
   background-position: center;
 
