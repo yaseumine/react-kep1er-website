@@ -10,7 +10,7 @@ import dayeonPhoto from "../assets/images/Member/dayeon.jpg";
 import hikaruPhoto from "../assets/images/Member/hikaru.jpg";
 import bahiyyihPhoto from "../assets/images/Member/bahiyyih.jpg";
 import youngeunPhoto from "../assets/images/Member/youngeun.jpg";
-// import photocardBg from "../assets/images/member/photocard_bg.png";
+
 // Data sudah diperbarui dengan detail untuk bagian belakang kartu
 const membersData = [
   {
